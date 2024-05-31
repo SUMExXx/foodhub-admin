@@ -1,19 +1,20 @@
 import Image from "next/image";
-import { AddToMenu } from "../components/buttons";
-import { StateProvider } from "../components/stateContext";
-import { MenuItemPlaceHolder } from "../components/MenuItem";
+import { AddToMenu, UpdateItemForm } from "../components/buttons";
+import { StateProvider, UpdateStateProvider, useUpdateStateContext } from "../components/stateContext";
 import MenuGrid from "../components/MenuGrid";
+import { UpdateItemFormWrapper } from "../components/UpdateItemFormWrapper";
 
 export default async function Menu() {
 
-  const test = [1,2,3,4,5,6]
-
   return (
-    <StateProvider>
-      <main className="flex w-full flex-col items-center bg-customGrey">
-        <AddToMenu/>
-        <MenuGrid/>
-      </main>
-    </StateProvider>
+    <UpdateStateProvider>
+      <StateProvider>
+        <main className="flex w-full flex-col items-center bg-customGrey">
+          {
+            <UpdateItemFormWrapper/>
+          }
+        </main>
+      </StateProvider>
+    </UpdateStateProvider>
   );
 }

@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${karla.className} antialiased`}>
-        <div className="flex w-screen h-screen">
+        <div className="flex w-screen h-screen max-h-screen">
           <Sidebar/>
           <div className="ml-[240px] w-full">
             <Navbar/>

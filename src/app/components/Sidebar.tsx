@@ -15,8 +15,6 @@ const Sidebar = () => {
         <RedirectButton icon={<HomeRoundedIcon sx={{color: `#A7B0BA`}} className='group-hover:text-white text-inherit ease-in-out duration-300'/>} text={`Dashboard`} redirect='/'/>
         <RedirectButton icon={<AssignmentRoundedIcon sx={{color: `#A7B0BA`}} className='group-hover:text-white text-inherit ease-in-out duration-300'/>} text={`Orders`} redirect='/orders'/>
         <RedirectButton icon={<MenuBookRoundedIcon sx={{color: `#A7B0BA`}} className='group-hover:text-white text-inherit ease-in-out duration-300'/>} text={`Menu`} redirect='/menu'/>
-        <RedirectButton icon={<HomeRoundedIcon sx={{color: `#A7B0BA`}} className='group-hover:text-white text-inherit ease-in-out duration-300'/>} text={`Dashboard`} redirect='/'/>
-        <RedirectButton icon={<HomeRoundedIcon sx={{color: `#A7B0BA`}} className='group-hover:text-white text-inherit ease-in-out duration-300'/>} text={`Dashboard`} redirect='/'/>
     </div>
   )
 }

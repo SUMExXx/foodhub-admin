@@ -31,7 +31,7 @@ const MenuGrid = () => {
     const [dessertData, setDessertData] = useState<ResponseDataObject[]>([])
 
     const loadChineseItems = async () =>{
-        const chineseResponse = await fetch('http://localhost:8080/products/chinese');
+        const chineseResponse = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/products/chinese`);
         if (!chineseResponse.ok) {
             throw new Error('Failed to fetch Chinese items data');
         }
@@ -39,7 +39,7 @@ const MenuGrid = () => {
     }
 
     const loadIndianItems = async () =>{
-        const indianResponse = await fetch('http://localhost:8080/products/indian');
+        const indianResponse = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/products/indian`);
         if (!indianResponse.ok) {
             throw new Error('Failed to fetch Indian items data');
         }
@@ -48,7 +48,7 @@ const MenuGrid = () => {
 
 
     const loadJapaneseItems = async () =>{
-        const japaneseResponse = await fetch('http://localhost:8080/products/japanese');
+        const japaneseResponse = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/products/japanese`);
         if (!japaneseResponse.ok) {
             throw new Error('Failed to fetch Japanese items data');
         }
@@ -57,7 +57,7 @@ const MenuGrid = () => {
 
 
     const loadItalianItems = async () =>{
-        const italianResponse = await fetch('http://localhost:8080/products/italian');
+        const italianResponse = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/products/italian`);
         if (!italianResponse.ok) {
             throw new Error('Failed to fetch Italian items data');
         }
@@ -65,7 +65,7 @@ const MenuGrid = () => {
     }
 
     const loadMexicanItems = async () =>{
-        const mexicanResponse = await fetch('http://localhost:8080/products/mexican');
+        const mexicanResponse = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/products/mexican`);
         if (!mexicanResponse.ok) {
             throw new Error('Failed to fetch Mexican items data');
         }
@@ -74,7 +74,7 @@ const MenuGrid = () => {
 
 
     const loadBreakfastItems = async () =>{
-        const breakfastResponse = await fetch('http://localhost:8080/products/breakfast');
+        const breakfastResponse = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/products/breakfast`);
         if (!breakfastResponse.ok) {
             throw new Error('Failed to fetch Breakfast items data');
         }
@@ -83,7 +83,7 @@ const MenuGrid = () => {
 
 
     const loadStarterItems = async () =>{
-        const starterResponse = await fetch('http://localhost:8080/products/starter');
+        const starterResponse = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/products/starter`);
         if (!starterResponse.ok) {
             throw new Error('Failed to fetch Starter items data');
         }
@@ -92,7 +92,7 @@ const MenuGrid = () => {
 
 
     const loadDessertItems = async () =>{
-        const starterResponse = await fetch('http://localhost:8080/products/starter');
+        const starterResponse = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/products/dessert`);
         if (!starterResponse.ok) {
             throw new Error('Failed to fetch Starter items data');
         }
@@ -100,7 +100,7 @@ const MenuGrid = () => {
     }
 
     const loadDrinkItems = async () =>{
-        const drinkResponse = await fetch('http://localhost:8080/products/drink');
+        const drinkResponse = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/products/drink`);
         if (!drinkResponse.ok) {
             throw new Error('Failed to fetch Drink items data');
         }
@@ -147,7 +147,7 @@ const MenuGrid = () => {
         loadData();
     }, []);
 
-    const placeholderItems = [0,1,2,3,4,5,6,7,8,9,10,11]
+    const placeholderItems = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]
 
   return (
         menuItemsLoaded? (
@@ -158,7 +158,7 @@ const MenuGrid = () => {
                         <h1 className='text-4xl font-semibold'>Starters</h1>
                         <div className="flex w-full flex-wrap items-start justify-center md:p-8 md:gap-4">
                             {
-                                starterData.map((foodItem) => (<MenuItem key={foodItem.pid} name={foodItem.name} desc={foodItem.desc} price={foodItem.price} type={foodItem.type} imgUrl={foodItem.imageUrl}/>))
+                                starterData.map((foodItem) => (<MenuItem key={foodItem.pid} pid={foodItem.pid} name={foodItem.name} desc={foodItem.desc} price={foodItem.price} type={foodItem.type} imgUrl={foodItem.imageUrl}/>))
                             }
                         </div>
                     </section>
@@ -169,7 +169,7 @@ const MenuGrid = () => {
                         <h1 className='text-4xl font-semibold'>Chinese</h1>
                         <div className="flex w-full flex-wrap items-start justify-center md:p-8 md:gap-4">
                             {
-                                chineseData.map((foodItem) => (<MenuItem key={foodItem.pid} name={foodItem.name} desc={foodItem.desc} price={foodItem.price} type={foodItem.type} imgUrl={foodItem.imageUrl}/>))
+                                chineseData.map((foodItem) => (<MenuItem key={foodItem.pid} pid={foodItem.pid} name={foodItem.name} desc={foodItem.desc} price={foodItem.price} type={foodItem.type} imgUrl={foodItem.imageUrl}/>))
                             }
                         </div>
                     </section>
@@ -180,7 +180,7 @@ const MenuGrid = () => {
                         <h1 className='text-4xl font-semibold'>Indian</h1>
                         <div className="flex w-full flex-wrap items-start justify-center md:p-8 md:gap-4">
                             {
-                                indianData.map((foodItem) => (<MenuItem key={foodItem.pid} name={foodItem.name} desc={foodItem.desc} price={foodItem.price} type={foodItem.type} imgUrl={foodItem.imageUrl}/>))
+                                indianData.map((foodItem) => (<MenuItem key={foodItem.pid} pid={foodItem.pid} name={foodItem.name} desc={foodItem.desc} price={foodItem.price} type={foodItem.type} imgUrl={foodItem.imageUrl}/>))
                             }
                         </div>
                     </section>
@@ -191,7 +191,7 @@ const MenuGrid = () => {
                         <h1 className='text-4xl font-semibold'>Japanese</h1>
                         <div className="flex w-full flex-wrap items-start justify-center md:p-8 md:gap-4">
                             {
-                                japaneseData.map((foodItem) => (<MenuItem key={foodItem.pid} name={foodItem.name} desc={foodItem.desc} price={foodItem.price} type={foodItem.type} imgUrl={foodItem.imageUrl}/>))
+                                japaneseData.map((foodItem) => (<MenuItem key={foodItem.pid} pid={foodItem.pid} name={foodItem.name} desc={foodItem.desc} price={foodItem.price} type={foodItem.type} imgUrl={foodItem.imageUrl}/>))
                             }
                         </div>
                     </section>
@@ -202,7 +202,7 @@ const MenuGrid = () => {
                         <h1 className='text-4xl font-semibold'>Italian</h1>
                         <div className="flex w-full flex-wrap items-start justify-center md:p-8 md:gap-4">
                             {
-                                italianData.map((foodItem) => (<MenuItem key={foodItem.pid} name={foodItem.name} desc={foodItem.desc} price={foodItem.price} type={foodItem.type} imgUrl={foodItem.imageUrl}/>))
+                                italianData.map((foodItem) => (<MenuItem key={foodItem.pid} pid={foodItem.pid} name={foodItem.name} desc={foodItem.desc} price={foodItem.price} type={foodItem.type} imgUrl={foodItem.imageUrl}/>))
                             }
                         </div>
                     </section>
@@ -213,7 +213,7 @@ const MenuGrid = () => {
                         <h1 className='text-4xl font-semibold'>Mexican</h1>
                         <div className="flex w-full flex-wrap items-start justify-center md:p-8 md:gap-4">
                             {
-                                mexicanData.map((foodItem) => (<MenuItem key={foodItem.pid} name={foodItem.name} desc={foodItem.desc} price={foodItem.price} type={foodItem.type} imgUrl={foodItem.imageUrl}/>))
+                                mexicanData.map((foodItem) => (<MenuItem key={foodItem.pid} pid={foodItem.pid} name={foodItem.name} desc={foodItem.desc} price={foodItem.price} type={foodItem.type} imgUrl={foodItem.imageUrl}/>))
                             }
                         </div>
                     </section>
@@ -224,7 +224,7 @@ const MenuGrid = () => {
                         <h1 className='text-4xl font-semibold'>Breakfast</h1>
                         <div className="flex w-full flex-wrap items-start justify-center md:p-8 md:gap-4">
                             {
-                                breakfastData.map((foodItem) => (<MenuItem key={foodItem.pid} name={foodItem.name} desc={foodItem.desc} price={foodItem.price} type={foodItem.type} imgUrl={foodItem.imageUrl}/>))
+                                breakfastData.map((foodItem) => (<MenuItem key={foodItem.pid} pid={foodItem.pid} name={foodItem.name} desc={foodItem.desc} price={foodItem.price} type={foodItem.type} imgUrl={foodItem.imageUrl}/>))
                             }
                         </div>
                     </section>
@@ -235,7 +235,7 @@ const MenuGrid = () => {
                         <h1 className='text-4xl font-semibold'>Desserts</h1>
                         <div className="flex w-full flex-wrap items-start justify-center md:p-8 md:gap-4">
                             {
-                                dessertData.map((foodItem) => (<MenuItem key={foodItem.pid} name={foodItem.name} desc={foodItem.desc} price={foodItem.price} type={foodItem.type} imgUrl={foodItem.imageUrl}/>))
+                                dessertData.map((foodItem) => (<MenuItem key={foodItem.pid} pid={foodItem.pid} name={foodItem.name} desc={foodItem.desc} price={foodItem.price} type={foodItem.type} imgUrl={foodItem.imageUrl}/>))
                             }
                         </div>
                     </section>
@@ -246,14 +246,14 @@ const MenuGrid = () => {
                         <h1 className='text-4xl font-semibold'>Drinks</h1>
                         <div className="flex w-full flex-wrap items-start justify-center md:p-8 md:gap-4">
                             {
-                                drinkData.map((foodItem) => (<MenuItem key={foodItem.pid} name={foodItem.name} desc={foodItem.desc} price={foodItem.price} type={foodItem.type} imgUrl={foodItem.imageUrl}/>))
+                                drinkData.map((foodItem) => (<MenuItem key={foodItem.pid} pid={foodItem.pid} name={foodItem.name} desc={foodItem.desc} price={foodItem.price} type={foodItem.type} imgUrl={foodItem.imageUrl}/>))
                             }
                         </div>
                     </section>
                 }
             </div>
         ): (
-            <div className="flex w-full flex-wrap items-start justify-center md:p-8 md:gap-4">
+            <div className="flex w-full flex-wrap items-start justify-center md:p-8 md:gap-4 max-h-screen overflow-hidden">
                 {
                     placeholderItems.map((item) => (<MenuItemPlaceHolder key={item}/>))
                 }
